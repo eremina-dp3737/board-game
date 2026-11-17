@@ -14,7 +14,7 @@ const gameList = document.getElementById('gameList')
 function renderGames() {
     gameList.innerHTML = '';
 
-    gameSelect.forEach((gameSelect, index) => {
+    gameselett.forEach((gameselett, index) => {
         const item = document.createElement('li');
         const title = document.createElement('span')
         title.textContent = gameselett.title
@@ -24,13 +24,9 @@ function renderGames() {
 
         const borrower =  document.createElement('span')
         borrower.textContent = gameselett.borrower
-        if (borrower === null) {
-            message.innerHTML = "Свободна" }
-        else {
-            message.innerHTML = `Взял(а): ${inpetBorrName}`
-        }
 
         item.append(title, players, borrower);
         gameList.append(item);
     })
 }
+renderGames();
