@@ -6,11 +6,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Board Games</title>
     <script src="index.js" defer></script>
+    <style>
+      body{
+        background-color: rgb(193, 162, 223);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      h1{
+        background-color: rgb(224, 203, 243);
+        width: 450px;
+        height: 70px;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: aliceblue;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+      }
+      #gameList{
+        background-color: rgb(224, 203, 243);
+        border-radius: 20px;
+        font-size: 25px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: aliceblue;
+        font-weight: bold;
+        width: 410px;
+        height: 110px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        
+      }
+      .all {
+        background-color: rgb(195, 231, 159);
+        font-size: 25px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: rgb(17, 128, 23);
+        font-weight: bold;
+        width: 450px;
+        height: 250px;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 7px;
+      }
+      .knopki {
+        display: flex;
+        flex-direction: row;
+      }
+      button {
+        width: 80px;
+        height: 30px;
+      }
+      #gameSelect {
+        width: 100px;
+        height: 30px;
+      }
+      
+    </style>
 </head>
 <body>
     <h1>Прокат настольных игр</h1>
 <ul id="gameList"></ul>
-
+<div class="all">
 <label for="gameSelect">Игра</label>
 <select id="gameSelect">
   <option value="0">Каркассон</option>
@@ -18,11 +79,15 @@
   <option value="2">Шахматы</option>
 </select>
 
+
 <label for="borrowerName">Имя посетителя</label>
+<div class="knopki">
 <input id="borrowerName" type="text">
 <button id="borrowButton" type="button">Выдать</button>
 <button id="returnButton" type="button">Вернуть</button>
+</div>
 <p id="message"></p>
+</div>
 
     
 </body>

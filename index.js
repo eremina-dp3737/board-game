@@ -1,7 +1,7 @@
 const gameselett = [
-    {title:'Каркассон', players: 4, borrower: null},
-    {title:'Доббль', players: 6, borrower: 'Аня'},
-    {title: 'Шахматы', players: 2, borrower: null}
+    {title:'Каркассон ', players: '4 ', borrower: null},
+    {title:'Доббль ', players: '6 ', borrower: 'Аня'},
+    {title: 'Шахматы ', players: '2 ', borrower: null}
 ]
 
 const gameSelect = document.getElementById('gameSelect')
@@ -29,7 +29,7 @@ buttonRet.addEventListener('click', () => {
     if (game.borrower === name) {
         game.borrower = null
         renderGames()
-        message.innerHTML = `игру только что вернул(а) ${name}`
+        message.innerHTML = `Игру только что вернул(а) ${name}`
     }
     else {
         message.innerHTML = `${name} не брал(а) эту игру`
