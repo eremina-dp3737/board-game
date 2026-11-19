@@ -8,11 +8,7 @@
     <script src="index.js" defer></script>
     <style>
       body{
-        background-image: url('floral-hand-drawing-abstract-design-for-cover-magazine-brochure-retro-80s-style-illustration-free-vector.jpg'); /* путь к изображению */
-      background-size: cover; /* изображение покрывает весь экран */
-      background-repeat: no-repeat; /* не повторять изображение */
-      background-position: center; /* центрирование изображения */
-      background-attachment: fixed; /* закрепление при прокрутке */
+        background-color: honeydew;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -69,12 +65,30 @@
         width: 100px;
         height: 30px;
       }
+      .tops{
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+        font-size: 15px;
+      }
       
     </style>
 </head>
 <body>
     <h1>Прокат настольных игр</h1>
+    <input type="checkbox" id="freeGamesCheckbox">
+    <label for="freeGamesCheckbox">Показать только свободные</label>
+    <p id="hint"></p>
+    <div class="tops">
+      <h2>Название игры</h2>
+      <h2>Число игроков</h2>
+    </div>
 <ul id="gameList"></ul>
+<div class="PushGame">
+  <input id="InputTitle" type="text">
+  <input id="InputPlayers" type="number">
+  <button id="ButtonAdd">Добавить игру</button>
+</div>
 <div class="all">
 <label for="gameSelect">Игра</label>
 <select id="gameSelect">
@@ -82,6 +96,7 @@
   <option value="1">Доббль</option>
   <option value="2">Шахматы</option>
 </select>
+
 
 
 <label for="borrowerName">Имя посетителя</label>
