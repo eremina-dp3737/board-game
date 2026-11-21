@@ -17,22 +17,20 @@ const InputPlayers = document.getElementById('InputPlayers')
 const ButtonAdd = document.querySelector('#ButtonAdd')
 
 freeGamesCheckbox.addEventListener("change", () => {
-    renderGames()
+    renderGamesOptions()
 })
 ButtonAdd.addEventListener('click', () => {
     const newgametitle = InputTitle.value
     const newgameplayers = InputPlayers.value
     if (!newgametitle || !newgameplayers) {
         return
-    } 
-    const newgame = [
-        {title: `${newgametitle}`, players: `${newgameplayers}`, borrower: null}
-    ]
+    }
+    const newgame = { title: `${newgametitle} `, players: `${newgameplayers}`, borrower: null }
 
     gameselett.push(newgame)
-    renderGames()
     InputTitle.value = ''
     InputPlayers.value = ''
+    renderGamesOptions()
 
 })
 
@@ -41,7 +39,7 @@ buttonBor.addEventListener('click', () => {
     const name = inputBorrName.value
     if (game.borrower === null) {
         game.borrower = name
-        renderGames()
+        renderGamesOptions()
         message.innerHTML = `Только что игру взял(а) ${name}`
     }
     else {
@@ -53,7 +51,7 @@ buttonRet.addEventListener('click', () => {
     const name = inputBorrName.value
     if (game.borrower === name) {
         game.borrower = null
-        renderGames()
+        renderGamesOptions()
         message.innerHTML = `Игру только что вернул(а) ${name}`
     }
     else {
@@ -61,20 +59,20 @@ buttonRet.addEventListener('click', () => {
     }
 })
 
-function renderGames() {
+
+function renderGamesOptions() {
     gameList.innerHTML = ' ';
 
-    gameselett.forEach((gameselett, index) => {
-        const item = document.createElement('li');
+    gameselett.forEach((game) => {
+        const item = document.createElement('li')
         const title = document.createElement('span')
-        title.textContent = gameselett.title
+        title.textContent = game.title
 
         const players = document.createElement('span')
-        players.textContent = gameselett.players
+        players.textContent = game.players
 
         const borrower = document.createElement('span')
-        borrower.textContent = gameselett.borrower
-
+        borrower.textContent = game.borrower
         item.append(title, players, borrower);
         if (freeGamesCheckbox.checked) {
             if (gameselett.borrower == null) {
@@ -84,7 +82,14 @@ function renderGames() {
             gameList.append(item);
             hint.innerHTML = ' '
         }
-        
+
+        gameSelect.innerHTML = '';
+        gameselett.forEach((game, index) => {
+            const option = document.createElement('option');
+            option.value = index;
+            option.textContent = game.title;
+            gameSelect.append(option);
+        });
     })
 }
-renderGames();
+renderGamesOptions();
